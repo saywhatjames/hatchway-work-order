@@ -1,0 +1,29 @@
+
+<div class="container text-center card-body">
+  <input class='form-control'[(ngModel)]="searchText" (ngModelChange)="onChange($event)" placeholder="Search for work orders by worker name....">
+  <i *ngIf="searchText" class="fas fa-times clear-button" (click)="clear()"></i>
+  <div class="py-4">
+    <button type="button" (click)="toggleSort()" class="btn btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+      <div class="handle"></div>
+    </button>
+  </div>
+  <div class="row">
+    <div class="outer col-sm-6 col-md-6 col-lg-6 col-xl-6"
+         *ngFor="let workorder of workOrders ; let i = index">
+      <div class="work-oder-item card">
+        <div class=" card-header"> {{workorder.name}}</div>
+        <div class="px-5"> {{workorder.description}}</div>
+        <app-worker [worker]="workorder.worker"></app-worker>
+        <div class="text-right card-footer"> {{workorder.deadline | date:'medium'}}</div>
+      </div>
+    </div>
+    <div *ngIf="errorMessage"
+         class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-left">
+      Sorry we are currently experiencing technical difficulties.
+    </div>
+    <div *ngIf="(workOrders | workOrderName : searchText).length === 0"
+         class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-left">
+      No results.
+    </div>
+  </div>
+</div>

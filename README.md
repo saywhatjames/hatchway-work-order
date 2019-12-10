@@ -4,10 +4,10 @@ HatchwayWorkoder is an application designed for the web and mobile devices that 
 It has features such as sorting the work orders by the deadline based on the user's preference and searching work orders by the worker name.
 The application is created using using Angular and Bootstrap Framework.
 
-##Getting Started
+## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-###Prerequisites
+### Prerequisites
 ```
 npm
 Angular CLI
